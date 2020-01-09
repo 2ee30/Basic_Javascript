@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Step08_if.html</title>
+</head>
+<body>
+<h1>조건부 수행 블럭 테스트</h1>
+<p id="console"></p>    
+<script>
+
+    var isHungry=confirm("배가 고프십니까?");
+
+    if(isHungry){
+        document.querySelector("#console").innerText="간식이라도 드세요~";
+    }
+
+    if(isHungry==false){
+        document.querySelector("#console").innerText="축하합니다.";
+    }
+</script>    
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Step13_string.html</title>
+</head>
+<body>
+<script>
+    var str1="문자열 입니다.";
+    var str2='문자열 입니다.';
+    // back tick 을 이용한 문자열 만들기 ECMA6 부터 추가 됨
+    var str3=`문자열 입니다.`;
+
+    var msg="첫번쨰"+
+    "두번째"+
+    "세번쨰";
+    // 여러줄의 문자열을 편리하게 작성할 수 있다.
+    var msg2=`
+    첫번쨰
+    두번쨰
+    세번쨰
+    `;
+
+    var num=1;
+    var name="김구라";
+
+    //변수 안에 있는 내용을 이용해서 원하는 형식의 문자열을 만들기
+    var result="번호:"+num+" 이름:"+name;
+    var result2=`번호:${num} 이름:${name}`;
+
+    var obj={num:2, name:"해골"};
+
+    // object 의 특정 방을 참조해서 원하는 형식의 문자열 만들기
+    var result3="번호:"+obj.num+" 이름:"+obj.name;
+    var result4=`번호:${obj.num} 이름:${obj.name}`;
+    
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Step05_plainObject3.html</title>
+</head>
+<body>
+<h1>plain object 테스트중...</h1>
+<script>
+    // a 와 b 의 차이 인지하기 
+    var a={num:1}; // plain object type
+    var b='{num:1}'; // string type
+
+    var num1=10;
+    var num2=10;
+
+    var result1 = num1==num2; //true
+
+    var name1="김구라";
+    var name2="김구라";
+
+    var result2 = name1==name2; //true
+
+    var obj1={name:"김구라"};
+    var obj2={name:"김구라"};
+    var obj3=obj1;
+
+    var result3 = obj1==obj2;
+    var result4 = obj1==obj3;
+    
+</script>    
+</body>
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Step11_EventListener2.html</title>
+    <style>
+        #one{
+            width: 300px;
+            height: 300px;
+            border: 1px solid red;
+            cursor: crosshair;
+        }
+    </style>
+</head>
+<body>
+<h1>EventListener 테스트</h1>
+<div id="one"></div>
+<script>
+    document.querySelector("#one")
+    .addEventListener("mousedown", function(){
+        console.log("mousedown!");
+        //document.querySelector("#one").style.backgroundColor="yellow";
+        //this 는 이벤트가 일어난 바로 그 요소를 가리킨다.
+        this.style.backgroundColor="yellow";
+    });
+
+    document.querySelector("#one")
+    .addEventListener("mousemove", function(event){
+        //함수에 event 객체가 전달된다. 
+        console.log(event);
+        //이벤트가 일어난 곳의 좌표 읽어오기
+        var x=event.offsetX;
+        var y=event.offsetY;
+        //div 의 innerText 로 출력하기
+        this.innerText="x:"+x+" y:"+y;
+    });
+
+    document.querySelector("#one")
+    .addEventListener("mouseout", function(){
+        console.log("mouseout!");
+        this.style.backgroundColor="white";
+    });
+
+</script>    
+</body>
+</html>

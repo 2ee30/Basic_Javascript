@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Step06_array2.html</title>
+</head>
+<body>
+<h1>array type 테스트중...</h1>
+<div>div1</div>
+<div>div2</div>
+<div>div3</div>
+<div>div4</div>
+<div>div5</div>
+<button onclick="change();">바꾸기</button>
+<p>위의 내용을 바꾸고 싶으면 마우스 우클릭해서 검사로 들어가서
+    console  창을 열고 change();  를 입력하고 앤터를 치세요.
+</p>
+<script>
+    var names=["김구라","해골","원숭이","주뎅이","덩어리"];
+    /*
+        document.querySelectorAll("요소명")[index].innerText = 바꿀값;
+
+        ex)
+        document.querySelectorAll("div")[0].innerText="xxx";
+
+        위의 5개의 div의 innerText 를 names 배열에 있는 문자열을 이용해서 
+        모두 순서대로 바꿔 보세요.
+    */
+
+    var change=function(){
+        document.querySelectorAll("div")[0].innerText=names[0];
+        document.querySelectorAll("div")[1].innerText=names[1];
+        document.querySelectorAll("div")[2].innerText=names[2];
+        document.querySelectorAll("div")[3].innerText=names[3];
+        document.querySelectorAll("div")[4].innerText=names[4];        
+    };
+
+</script>  
+</body>
+</html>

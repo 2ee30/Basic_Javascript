@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Step13_Game2.html</title>
+    <style>
+    	* { padding: 0; margin: 0; }
+    	canvas { background: #eee; display: block; margin: 0 auto; }
+    </style>
+</head>
+<body>
+
+<canvas id="myCanvas" width="480" height="320"></canvas>
+
+<script>
+
+    // 캔버스 만들기
+    var canvas = document.getElementById("myCanvas");
+    var ctx = canvas.getContext("2d");
+    // 움직이는 방향을 계산하기 위해 반지름값 대입
+    var ballRadius = 10;
+    // x, y 변수를 만들어 이용하기
+    var x = canvas.width/2;
+    var y = canvas.height-30;
+    // 동작을 구성하기 위해서 프레임 덧붙이기
+    var dx = 2;
+    var dy = -2;
+    // 공을 치기 위한 paddle 구성(혹은 정의)
+    var paddleHeight = 10;
+    var paddleWidth = 75;
+    var paddleX = (canvas.width-paddleWidth)/2;
+    // 누를 수 있는 버튼을 제작하기 위해 boolean 타입으로 변수를 정의
+    var rightPressed = false;
+    var leftPressed = false;
+    // 벽돌에 대한 변수 설정하기
+    var brickRowCount = 5;
+    var brickColumnCount = 3;
+    var brickWidth = 75;
+    var brickHeight = 20;
+    var brickPadding = 10;
+    var brickOffsetTop = 30;
+    var brickOffsetLeft = 30;
+    // 점수를 기록할 변수 만들기
+    var score = 0;
+    // 플레이어에게 생명을 부여하기 위해 변수를 추가한다.
+    var lives = 3;
+    // 벽돌 그릴 위치를 나타낼 변수를 이용하여 새로운 벽돌 만들기
+    var bricks = [];
+    for(var c=0; c<brickColumnCount; c++){
+        bricks[c] = [];
+            for(var r=0; r<brickRowCount; r++){
+                bricks[c][r] = { x: 0, y: 0, status: 1 };
+            }
+        }
+
+    // 이벤트리스너를 이용해 키를 인식할 수 있게 만들기
+    document.addEventListener("keydown", keyDownHandler, false);
+    document.addEventListener("keyup", keyUpHandler, false);
+    // 이벤트리스너를 이용하여 마우스 이동 감지하기
+    document.addEventListener("mousemove", mouseMoveHandler, false);
+
+    function keyDownHandler(e){
+        if(e.key == "Right" || e.key == "ArrowRight"){
+            rightPressed = true;
+        }else if(e.key == "Left" || e.key == "ArrowLeft"){
+            leftPressed = true;
+        }
+    }
+    function keyUpHandler(e){
+        if(e.key == "Right" || e.key == "ArrowRight"){
+            rightPressed = false;
+        }else if(e.key == "Left" || e.key == "ArrowLeft"){
+            leftPressed = false;
+        }
+    }
+    // 마우스 움직임에 따라 paddle 이동하기
+    function mouseMoveHandler(e){
+        var relativeX = e.clientX - canvas.offsetLeft;
+        if(relativeX > 0 && relativeX < canvas.width){
+            paddleX = relativeX - paddleWidth/2;
+            }
+        }
+    // 공의 위치와 비교하는 충돌 감지 함수를 만들기
+    function collisionDetection(){
+        for(var c=0; c<brickColumnCount; c++){
+            for(var r=0; r<brickRowCount; r++){
+                var b = bricks[c][r];
+                if(b.status == 1){
+                    if(x > b.x && x < b.x+brickWidth && y > b.y && y < b.y+brickHeight) {
+                        dy = -dy;
+                        b.status = 0;
+                        score++;
+                        // 모든 벽돌이 파괴되었을 때 승리 메시지 표시하기
+                        if(score == brickRowCount*brickColumnCount){
+                            alert("YOU WIN, CONGRATS!");
+                            // 페이지 리로딩, 경고를 클릭하면 게임을 다시 시작한다.
+                            document.location.reload();
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+    function drawBall(){
+        ctx.beginPath();
+        ctx.arc(x, y, ballRadius, 0, Math.PI*2);
+        ctx.fillStyle = "#0095DD";
+        ctx.fill();
+        ctx.closePath();
+    }
+    // 공을 치는 paddle를 캔바스에 그리는 함수
+    function drawPaddle(){
+        ctx.beginPath();
+        ctx.rect(paddleX, canvas.height-paddleHeight, paddleWidth, paddleHeight);
+        ctx.fillStyle = "#0095DD";
+        ctx.fill();
+        ctx.closePath();
+    }
+    // 배열 안의 모든 벽돌을 반복해서 화면에 그려줄 함수
+    function drawBricks(){
+        for(var c=0; c<brickColumnCount; c++){
+            for(var r=0; r<brickRowCount; r++){
+                if(bricks[c][r].status == 1){
+                // 연산을 이용해 각 벽돌의 x, y값 계산하기
+                    var brickX = (r*(brickWidth+brickPadding))+brickOffsetLeft;
+                    var brickY = (c*(brickHeight+brickPadding))+brickOffsetTop;
+                    bricks[c][r].x = brickX;
+                    bricks[c][r].y = brickY;
+                    ctx.beginPath();
+                    ctx.rect(brickX, brickY, brickWidth, brickHeight);
+                    ctx.fillStyle = "#0095DD";
+                    ctx.fill();
+                    ctx.closePath();
+                }
+            }
+        } 
+    }
+    // 화면에 "점수" 표시하기
+    function drawScore(){
+        ctx.font = "16px Arial";
+        ctx.fillStyle = "#0095DD";
+        ctx.fillText("Score: "+score, 8, 20);
+    }
+    // 화면에 "생명" 표시하기
+    function drawLives(){
+        ctx.font = "16px Arial";
+        ctx.fillStyle = "#0095DD";
+        ctx.fillText("Lives: "+lives, canvas.width-65, 20);
+    }
+    function draw(){
+    // 다음 프레임 전에 캔버스 지우기
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        drawBricks();
+        drawBall();
+        drawPaddle();
+        drawScore();
+        drawLives(); // 남은 생명 표시 나타내기
+        collisionDetection(); // 충돌 감지 활성화하기
+        // 아래쪽 면에 닿으면 게임이 끝나도록 조정
+        if(x + dx > canvas.width-ballRadius || x + dx < ballRadius){
+            dx = -dx;
+        }
+        if(y + dy < ballRadius){
+            dy = -dy;
+        }
+    // 공이 밑면에 충돌하는 상황에 경고문 등장과 게임 재시작하게 페이지 리로딩
+    else if(y + dy > canvas.height-ballRadius){
+        if(x > paddleX && x < paddleX + paddleWidth){
+            dy = -dy;
+        }else{
+            lives--;
+        if(!lives){
+            alert("GAME OVER");
+            document.location.reload();
+        }else{
+            // 맨아래 위치를 지정해 지정된 위치로 이동하면 생명을 하나씩 빼기
+            x = canvas.width/2;
+            y = canvas.height-30;
+            dx = 3;
+            dy = -3;
+            paddleX = (canvas.width-paddleWidth)/2;
+            }
+        }
+    }
+    
+    // paddle를 화면에서 움직이기 (이동반경)
+    if(rightPressed && paddleX < canvas.width-paddleWidth){
+        // 우측으로 7픽셀 이동
+        paddleX += 7;
+    }
+    else if(leftPressed && paddleX > 0){
+        // 좌측으로 7픽셀 이동
+        paddleX -= 7;
+    }
+
+    x += dx;
+    y += dy;
+    requestAnimationFrame(draw);
+    }
+
+    draw();
+</script>
+
+</body>
+</html>

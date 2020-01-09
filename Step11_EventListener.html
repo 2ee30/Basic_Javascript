@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Step11_EventListener.html</title>
+</head>
+<body>
+<h1>eventListener 테스트...</h1>
+<button id="myBtn">눌러보셈</button>
+<script>
+
+    document.querySelector("#myBtn")
+    .addEventListener("click", function(){
+        alert("버튼을 클릭했네?");
+    });
+
+    document.querySelector("#myBtn")
+    .addEventListener("mouseover", function(){
+        alert("마우스 올리지 마라~");
+    });    
+
+</script>    
+</body>
+</html>

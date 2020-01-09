@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Step02_datatype.html</title>
+</head>
+<body>
+<h1>javascript datatype 공부중...</h1>
+<script>
+
+    // 1. number type 
+    // 산술연산이 가능하다 
+    var num1=10;
+    var num2=10.1;
+
+    // 2. string type
+    // 문자열을 저장할때 사용한다. 
+    var myName='김구라'; // single quotaion 혹은
+    var yourName="해골"; // double quotation 으로 만들수 있다.
+
+    // 3. 참, 거짓을 나타내는 boolean type
+    // true , false 를 직접 작성하거나 비교연산 또는 논리연산의
+    // 결과로 만들어진다. 
+    var isRun=true;
+    var isWait=false;
+    var isGreater= 10 > 5;
+
+    /*
+        한명의 회원 정보를 관리 하고자 한다면?
+
+        번호, 이름, 주소, 전화번호, 몸무게, 혈액형, ....
+    */
+    //4. plain object type
+    var mem={num:1, name:"김구라", addr:"노량진", isMan:true};
+
+    //5. array type
+    var mem2=[1, "김구라", "노량진", true];
+
+    //6. function type
+    var f=function(){
+        alert("하나");
+        alert("두울");
+        alert("세엣");
+    };
+
+</script> 
+<a href="javascript: f();">알림 3번 보기</a>
+<button onclick="f();">눌러보셈</button>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Step13_string2.html</title>
+</head>
+<body>
+<script>
+    // string type도 자체의 기능을 가지고 있다.
+    var str="김구라/해골/원숭이";
+    var result=str.split("/");
+    var result2=str.length; // 저장소-문자열의 길이가 나타남
+    var result3=str.replace("/", "_"); // 교체해주는 기능
+
+    var line="abcde12345";
+    // line 문자열의 0번 인덱스 이상 5번 인덱스 이하의 문자열만 가지고 오기
+    var result4=line.substring(0,5);
+
+</script>
+</body>
+</html>

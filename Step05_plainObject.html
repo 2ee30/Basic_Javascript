@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Step05_plainObject.html</title>
+</head>
+<body>
+<h1>plain object 테스트중...</h1>
+<script>
+    /*
+        plain object type
+        - 객체 리터럴 {} 을 이용해서 만들수 있다.
+        - {key : value, key2 : value2, key3 : value3, ...} 형식으로 작성한다.
+        - 순서가 중요치 않는 데이터를 다룬다.
+    */
+
+   var mem={num:1, name:"김구라", addr:"노량진"};
+
+   //필요에 따라서 아래와 같은 형식으로 plain object 를 만들수도 있다. 
+   var mem2={
+       num:2,
+       name:"해골",
+       addr:"행신동"
+   };
+   //빈 plain object 를 만들고 나중에 데이터를 저장할수도 있다.
+   var mem3={};
+   mem3.num=3;
+   mem3.name="원숭이";
+   mem3.addr="상도동";
+
+   // mem3 에 name 이라는 방에 저장된 데이터를  myFriend 라는 변수에 담아 보세요.
+   var myFriend=mem3.name;
+
+   // mem2 에 num  이라는 방에 저장된 데이터를 myNum 이라는 변수에 담아 보세요.
+   var myNum=mem2.num;
+
+   // myAddr 이라는 변수에 mem 의 addr 이라는 방에 저장된 데이터를 대입해 보세요.
+   var myAddr=mem.addr;
+
+   // 알림창(alert) 에 mem3 의 name 이라는 방에 저장된 내용을 출력하는 code 를 
+   // 작성해 보세요.
+   alert(mem3.name);
+
+    // 콘솔창에 mem3 의 name 이라는 방에 저장된 내용을 출력하는 code 를 
+   // 작성해 보세요.
+   console.log(mem3.name);
+   
+</script>    
+</body>
+</html>

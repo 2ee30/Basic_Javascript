@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Step05_plainObject2.html</title>
+</head>
+<body>
+<h1>plain object 테스트중...</h1>
+<script>
+    
+    var mem={num:1, name:"김구라", addr:"노량진"};
+
+    //object 에 저장된 값 수정가능?
+    mem.name="이정호";
+    mem.addr="독산동";
+
+    //특정 방을 삭제하기
+    delete mem.addr;
+
+    //변수에 들어 있는 값을 plain object 에 저장하기 
+    var myNum=2;
+    var myName="해골";
+    var myAddr="행신동";
+
+    var mem2={num:myNum, name:myName, addr:myAddr};
+    
+    var num=3;
+    var name="원숭이";
+    var addr="상도동";
+
+    var mem3={num:num, name:name, addr:addr};
+
+</script>    
+</body>
+</html>

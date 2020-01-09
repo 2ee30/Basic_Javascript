@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Step07_example5.html</title>
+</head>
+<body>
+<button onclick="run();">달리기</button>
+<button onclick="alwaysRun();">자동으로 달리기</button>
+<button onclick="stop();">멈추기</button>
+<br/>    
+<img src="images/run1.png" id="one"/>
+<script>
+    /*
+        "images/run1.png" => "images/run2.png" => "images/run3.png" 
+        => "images/run1.png" => "images/run2.png" => "images/run3.png" ....
+    */
+    //로딩할 이미지 경로를 배열에 미리 담아 놓기
+    var ninjas=["images/run1.png", "images/run2.png", "images/run3.png"];
+    //닌자의 이미지 인덱스를 관리할 변수 선언하고 초기값 0 넣어주기 
+    var ninjaIndex=0;
+    //왼쪽 마진을 관리할 변수 만들고 0으로 초기화 하기
+    var mLeft=0;
+    //한번에 움직이는 거리 
+    var step=10;
+
+    var run=function(){
+        //닌자의 이미지 인덱스 1 증가 시키기 
+        ninjaIndex=ninjaIndex+1;
+        //웹브라우저야 만일 ninjaIndex가 3이면 0 으로 바꿔줘~
+        if(ninjaIndex == 3){
+            ninjaIndex=0;
+        }
+        //왼쪽 마진값 변화 시키기
+        mLeft=mLeft+step;
+        if(mLeft==200){
+            step=-10;
+        }
+        if(mLeft==0){
+            step=10;
+        }
+
+        document.querySelector("#one").setAttribute("src", ninjas[ninjaIndex]);
+        document.querySelector("#one").style.marginLeft=mLeft+"px";
+    };
+
+    //인터발의 아이디를 담을 변수 만들어두기
+    var intervalId;
+    //현재 움직이고 있는지 여부를 관리할 변수 만들고 초기값 대입
+    var isMoving=false;
+
+    //자동으로 달리기 버튼을 누르면 호출되는 함수
+    var alwaysRun=function(){
+        if(isMoving == true){//만일 움직이고 있는 상태라면
+            return;//여기서 함수 끝내기 
+        }
+        //인터발을 시작시키고 아이디값을 변수에 담아 놓기 
+        intervalId = setInterval(run, 50);
+        //움직이는 상태로 바꿔준다.
+        isMoving=true;
+    };
+
+    //멈추기 버튼을 눌렀을때 호출되는 함수
+    var stop=function(){
+        //변수에 저장된 아이디값을 이용해서 인터발 취소 시키기 
+        clearInterval(intervalId);
+        //상태값을 움직이지 않는 상태로 바꿔준다. 
+        isMoving=false;
+    };
+
+</script>    
+</body>
+</html>

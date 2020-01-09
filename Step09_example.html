@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Step09_example.html</title>
+</head>
+<body>
+<h1>논리 연산자 테스트 중...</h1>
+<input type="text" id="height" placeholder="당신의 키를 입력하세요..."/>
+<input type="text" id="weight" placeholder="당신의 몸무게를 입력하세요...">
+<button onclick="check();">놀이 기구를 탈수 있는지 확인하기</button> 
+<p id="console"></p>
+<script>
+    /*
+        키가 너무 작거나 몸무게가 너무 작으면 탈수 없는 놀이 기구가 있다.
+        키는 150 이상, 몸무게는 40  이상이 최소 기준이다. 
+        키와 몸무게를 입력하고 확인하기 버튼을 누르면 해당 놀이기구를 탈수 있는지 
+        없는지 메세지를 p 요소에 출력하는 프로그래밍을 해 보세요...
+    */
+
+    var check=function(){
+        //1. 입력한 키, 몸무게 읽어오기
+        var height=parseFloat(document.querySelector("#height").value);
+        var weight=parseFloat(document.querySelector("#weight").value);
+
+        //2. 키가 150 이상인지 여부
+        var isHeightPass = height>=150;
+        //3. 몸무게가 40 이상인지 여부
+        var isWeightPass = weight>=40;
+
+        if( isHeightPass && isWeightPass ){
+            document.querySelector("#console").innerText="탑승 가능";
+        }else{
+            document.querySelector("#console").innerText="탑승 불가능";
+        }
+
+    };
+</script>   
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Step07_function6.html</title>
+</head>
+<body>
+<h1>javascript 테스트중...</h1>
+<input type="text" id="one"/>
+<input type="text" id="two"/>
+<script>
+    var getKey=function(sel){
+        var obj=document.querySelector(sel);
+        return obj;
+    };
+    // obj1 과 obj2 에는 같은 값이 들어 있다. 
+    var obj1=document.querySelector("#one");
+    var obj2=getKey("#one");
+
+    // obj3 와 obj4 에도 같은 값이 들어 있다. 
+    var obj3=document.querySelector("#two");
+    var obj4=getKey("#two");
+
+    //인자로 전달받은 두 수의 합을 출력하는 함수 
+    var showSum=function(num1, num2){
+        //두수의 합을 구해서 
+        var result=num1+num2;
+        //콘솔창에 출력하기
+        console.log(num1+"+"+num2+"="+result);
+    };
+
+    /*
+        함수를 저장할 변수의 이름 : getSum
+        인자를 전달받는 갯수 : 2개
+        인자로 숫자 2개를 전달 받으면 두수의 합을 구해서
+        리턴해주는 함수를 만들고 테스트 해 보세요.
+    */
+    
+    var getSum=function(num1, num2){
+        var result=num1+num2; // 두수의 합을 구해서
+        return result; //리턴하기 
+    }; 
+
+    var result1=getSum(10, 10); //20
+    var result2=getSum(10, 20); //30
+    var result3=getSum(10, 30); //40
+
+    //처음에 정의한 getKey() 함수 사용해보기
+    getKey("#one").value="김구라";
+    getKey("#two").value="해골";
+</script>    
+</body>
+</html>

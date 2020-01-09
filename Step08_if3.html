@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Step08_if3.html</title>
+</head>
+<body>
+<h1>양자 택일의 if 문 블럭 구성하기</h1>
+<p id="console"></p>
+<button onclick="input();">숫자 입력해 보기</button>
+<script>
+    var input=function(){
+        var inputNum=prompt("임의의 숫자를 입력하세요.");
+        var num=parseFloat(inputNum);
+
+        if(num>0){
+            document.querySelector("#console").innerText="입력한 수는 0보다 큰 수입니다.";
+        }else{
+            document.querySelector("#console").innerText="입력한 수는 0보다 크지 않습니다.";
+        }
+    };
+</script>    
+</body>
+</html>
+
+

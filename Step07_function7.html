@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Step07_function7.html</title>
+</head>
+<body>
+<h1>function type 테스트중...</h1>
+<script>
+    //함수를 만들어서 한번만 호출할거라면?
+    var a=function(){
+        console.log("무언가를 초기화 했습니다.");
+    };
+    a();
+
+    //함수를 만들자 마자 1번 호출하기 
+    (function(){
+        console.log("무언가를 초기화 했습니다.2");
+    })();
+
+    (function(msg){
+        console.log(msg);
+    })("hello");
+    
+</script>    
+</body>
+</html>

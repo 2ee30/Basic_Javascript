@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Step06_array3.html</title>
+</head>
+<body>
+<h1>array type 테스트중...</h1>
+<input type="text" id="one"/>
+<button onclick="save();">저장</button>
+<script>
+    var msgs=[];
+    /*
+        input  요소에 문자열을 입력하고 저장 버튼을 누르면 
+        입력한 문자열을 읽어와서
+        msgs 배열에 누적(저장) 시켜 보세요.
+    */
+    var save=function(){
+        var inputMsg=document.querySelectorAll("input")[0].value;
+        //var inputMsg=document.querySelector("#one").value;
+        msgs.push(inputMsg);
+        alert("배열에 저장했습니다.");
+    };
+
+</script>    
+</body>
+</html>

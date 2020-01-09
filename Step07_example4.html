@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Step07_example4.html</title>
+    <style>
+        /* id 가 on  인 요소에 적용할 css */
+        #one{
+            width: 176px;
+            transition: all 0.5s ease-out;
+        }
+    </style>
+</head>
+<body>
+<button onclick="move();">움직이기</button>
+<br/>
+<img onclick="bigger();" src="../html4/images/kim1.png" id="one"/>
+<script>
+    //필요한 변수 선언하고 0으로 초기값 넣어주기 
+    var mLeft=0;
+
+    //움직이기 버튼을 눌렀을때 호출되는 함수 
+    var move=function(){
+        
+        mLeft=mLeft+100;
+
+        document.querySelector("#one").style.marginLeft=mLeft+"px";
+    };
+
+    //이미지의 크기를 관리할 변수만들고 176 으로 초기화 하기
+    var imageSize=176; // camel case 
+    //이미지의 회전값을 관리할 변수 만들고 0 으로 초기화 하기
+    var imageDegree=0;
+    
+    //이미지를 클릭했을때 호출되는 함수
+    var bigger=function(){
+        imageSize=imageSize+50;
+        imageDegree=imageDegree+45;
+        //테스트로 출력해보기
+        console.log(imageSize);
+        document.querySelector("#one").style.width=imageSize+"px";
+        document.querySelector("#one").style.transform="rotate("+imageDegree+"deg)";
+    };
+</script>    
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Step08_if5.html</title>
+</head>
+<body>
+<h1>다중 if 문 구성하기</h1>
+<label for="weapon">무기선택</label>
+<select id="weapon">
+    <option value="">선택</option>
+    <option value="gun">총</option>
+    <option value="sword"">칼</option>
+    <option value="arrow">활</option>
+</select> 
+<button onclick="attack();">공격하기</button>
+<p id="console"></p>
+<script>
+    var attack=function(){
+        //선택한 무기를 문자열로 얻어온다.
+        var selectedWeapon=document.querySelector("#weapon").value;
+        //선택된 무기를 테스트로 콘솔창에 출력해 보기
+        console.log(selectedWeapon);
+        //선택된 무기가 뭐냐에 따라서 다중 if 문으로 분기하기 
+        if(selectedWeapon=="gun"){
+            document.querySelector("#console").innerText="총으로 공격해요!";
+        }else if(selectedWeapon=="sword"){
+            document.querySelector("#console").innerText="칼로 공격해요!";
+        }else if(selectedWeapon=="arrow"){
+            document.querySelector("#console").innerText="활로 공격해요!";
+        }else{
+            document.querySelector("#console").innerText="기본무기 주먹으로 공격해요!";
+        }
+    };
+</script>   
+</body>
+</html>

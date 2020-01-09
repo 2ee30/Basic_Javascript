@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Step12_example.html</title>
+</head>
+<body>
+<button id="showBtn">테이블에 정보 표시하기</button>
+<table>
+    <thead>
+        <tr>
+            <th>번호</th>
+            <th>이름</th>
+            <th>주소</th>
+        </tr>
+    </thead>
+    <tbody>
+
+    </tbody>
+</table>
+<script>
+    //빈 배열을 만들고
+    var members=[];
+    //plain object 3개를 만들어서
+    var mem1={num:1, name:"김구라", addr:"노량진"};
+    var mem2={num:2, name:"해골", addr:"행신동"};
+    var mem3={num:3, name:"원숭이", addr:"상도동"};
+    var mem4={num:4, name:"덩어리", addr:"천호동"};
+    //참조값을 배열에 누적 시키기 (저장하기)
+    members.push(mem1);
+    members.push(mem2);
+    members.push(mem3);
+    members.push(mem4);
+
+    //버튼을 눌렀을 때 실행할 함수 등록
+    document.querySelector("#showBtn")
+    .addEventListener("click", function(){
+
+        for(var i=0; i<members.length; i++){
+            //1. td 요소 3개 만들기
+            var td1=document.createElement("td");
+            var td2=document.createElement("td");
+            var td3=document.createElement("td");
+
+            //2. 만든 3개의 td에 innerText 넣어주기
+            td1.innerText = members[i].num;
+            td2.innerText = members[i].name;
+            td3.innerText = members[i].addr;
+
+            //3. tr 만들기
+            var tr1=document.createElement("tr");
+
+            //4. 만든 tr에 td1, td2, td3 를 append(추가)하기
+            tr1.append(td1);
+            tr1.append(td2);
+            tr1.append(td3);
+
+            //5. 이미 body에 존재하고 있는 tbody에 tr을 append(추가) 하기
+            document.querySelector("tbody").append(tr1);
+    }
+
+        //1. td 요소 3개 만들기
+        var td1=document.createElement("td");
+        var td2=document.createElement("td");
+        var td3=document.createElement("td");
+
+        //2. 만든 3개의 td에 innerText 넣어주기
+        td1.innerText = members[0].num;
+        td2.innerText = members[0].name;
+        td3.innerText = members[0].addr;
+
+        //3. tr 만들기
+        var tr1=document.createElement("tr");
+
+        //4. 만든 tr에 td1, td2, td3 를 append(추가)하기
+        tr1.append(td1);
+        tr1.append(td2);
+        tr1.append(td3);
+
+        //5. 이미 body에 존재하고 있는 tbody에 tr을 append(추가) 하기
+        document.querySelector("tbody").append(tr1);
+    });
+        
+</script>
+</body>
+</html>

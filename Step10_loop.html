@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Step10_loop.html</title>
+</head>
+<body>
+<h1>반복문 테스트</h1>
+<div>div1</div>
+<div>div2</div>
+<div>div3</div>
+<div>div4</div>
+<div>div5</div>
+<div>div6</div>
+<div>div7</div>
+<div>div8</div>
+<div>div9</div>
+<div>div10</div>
+<button onclick="change();">바꾸기</button>
+<script>
+    var change=function(){
+        // document.querySelectorAll("div")[0].innerText="김구라";
+        // document.querySelectorAll("div")[1].innerText="김구라";
+        // document.querySelectorAll("div")[2].innerText="김구라";
+        // document.querySelectorAll("div")[3].innerText="김구라";
+        // document.querySelectorAll("div")[4].innerText="김구라";
+        // document.querySelectorAll("div")[5].innerText="김구라";
+        // document.querySelectorAll("div")[6].innerText="김구라";
+        // document.querySelectorAll("div")[7].innerText="김구라";
+        // document.querySelectorAll("div")[8].innerText="김구라";
+        // document.querySelectorAll("div")[9].innerText="김구라";
+
+        for(var i=0; i<10; i++){
+            console.log("test! i:"+i);
+            document.querySelectorAll("div")[i].innerText="김구라"+i;
+        }
+    };
+</script>    
+</body>
+</html>

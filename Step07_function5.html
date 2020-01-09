@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Step07_function5.html</title>
+</head>
+<body>
+<h1>function type 테스트중...</h1>
+<script>
+    //특정 형식으로 로그를 출력하는 함수 만들어 보기
+    var printLog=function(msg){
+        console.log("---log start---");
+        console.log(msg);
+        console.log("---log end---");
+    };
+    //위에서 만든 함수 호출하면서 string type  전달하기 
+    printLog("hello");
+</script>
+<button onclick="printLog('test');">log 출력</button>    
+</body>
+</html>

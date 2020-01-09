@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Step07_function8.html</title>
+</head>
+<body>
+<h1>function type 테스트중...</h1>
+<script>
+    // page 로딩되는 시점에 실행되는 영역에서 만들어진
+    // myName 이라는 변수는 전역에서 사용 가능하다 
+    var myName="김구라";
+
+    var test=function(){
+        //이 함수가 호출될때 만들어지는 yourName 이라는 변수는
+        //이 함수 내부에서만 사용할수 있다. 
+        var yourName="해골";
+    };
+
+    var printName=function(){
+        //함수 바깥 영역에 정의된 myName 변수 사용가능 
+        console.log(myName);
+    };
+</script>    
+</body>
+</html>

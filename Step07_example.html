@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Step07_example.html</title>
+</head>
+<body>
+<p> 현재 count : <strong id="currentCount">0</strong></p> 
+<button onclick="addCount();">카운트 올리기</button>
+<button onclick="resetCount();">카운트 리셋</button>
+<button onclick="minusCount();">카운트 줄이기</button>
+<script>
+    //카운트 값을 저장할 변수 만들고 0 으로 초기화 
+    var count=0;
+    //카운트 올리기 버튼을 누르면 호출되는 함수 
+    var addCount=function(){
+        //count 변수에 있는 값을 1 증가 시키기
+        count=count+1;
+        //증가된 값을 strong  요소의 innerText 로 출력하기 
+        document.querySelector("#currentCount").innerText=count;
+    };
+
+    var resetCount=function(){
+        //카운트를 0 으로 초기화 
+        count=0;
+        document.querySelector("#currentCount").innerText=count;
+    };
+    //카운트값을 줄이는 함수 
+    var minusCount=function(){
+        if(count == 0){
+            return; //함수 종료 
+        }
+        //카운트를 줄이고 
+        count=count-1;
+        //줄인 카운트 값을 출력하기 
+        document.querySelector("#currentCount").innerText=count;
+    };
+    var minusCount2=function(){
+        if(count > 0){
+            //카운트를 줄이고 
+            count=count-1;
+            //줄인 카운트 값을 출력하기 
+            document.querySelector("#currentCount").innerText=count;
+        }
+    };
+</script>   
+</body>
+</html>

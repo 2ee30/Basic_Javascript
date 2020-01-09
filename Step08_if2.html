@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Step08_if2.html</title>
+</head>
+<body>
+<h1>조건부 수행 블럭 테스트</h1>    
+<p id="one"></p>
+<script>
+    //문자열 입력 받기
+    var inputNum=prompt("임의의 숫자를 하나 입력하세요");
+    //입력받은 문자열을 숫자로 바꾸기
+    var num=parseFloat(inputNum);
+
+    //입력받은 숫자가  0 보다 크면 "0보다 큰수를 입력했네요" 라고 출력하고
+    //입력받은 숫자가  0 보다 크지 않으면 "0보다 크지 않은 수를 입력했네요" 라고 출력
+    if(num > 0){
+        document.querySelector("#one").innerText="0보다 큰수를 입력했네요";
+    }
+
+    if(num <= 0){
+        document.querySelector("#one").innerText="0보다 크지 않은 수를 입력했네요";
+    }
+
+</script>    
+</body>
+</html>

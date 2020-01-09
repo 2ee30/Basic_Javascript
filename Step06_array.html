@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Step06_array.html</title>
+</head>
+<body>
+<h1>array type 테스트중...</h1>    
+<script>
+   /*
+        array type
+        - 순서가 중요한 데이터를 담는다.
+        - 0 부터 시작해서 1씩 증가하는 인덱스가 자동으로 부여된다. 
+        - 대괄호 [] 열고 닫고 해서 만들수 있다.
+   */
+    //숫자를 배열에 담기
+    var nums=[10, 20, 30, 40, 50];
+
+    //문자열을 배열에 담기
+    var names=["김구라", "해골", "원숭이", "주뎅이", "덩어리"];
+
+    // nums 배열의 1 번방에 있는 값을 a 라는 이름의 변수에 담아 보세요.
+    var a=nums[1];
+    // nums 배열의 0 번방에 100 이라는 값을 담아 보세요.
+    nums[0]=100;
+    // nums 배열의 4 번방에 300 이라는 값을 담아 보세요.
+    nums[4]=300;
+    // names 배열의 2 번방에 "신현호" 라는 문자열을 담아 보세요.
+    names[2]="신현호";
+    // names  배열에 문자열 추가 하기
+    names.push("돼지");
+    names.push("개다리");
+    // 2 번방에서 부터 1개 삭제 하기
+    names.splice(2, 1);
+    // 배열의 방의 크기 참조
+    var size=names.length;
+</script>    
+</body>
+</html>
+
+
+
+
+
+
+
+
